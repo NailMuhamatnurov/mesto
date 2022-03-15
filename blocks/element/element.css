@@ -1,0 +1,8 @@
+.element {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 5%;
+    max-width: 282px;
+    overflow: hidden;
+}
