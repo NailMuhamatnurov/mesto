@@ -1,4 +1,14 @@
 .profile__edit-button {
-    margin-right: 244px;
     margin-left: 25px;
+    margin-right: 235px;
 }
+@media screen and (max-width: 920px) {
+    .profile__edit-button {
+        margin-right: calc((100vw - 682px)/1.001);
+}
+}
+/*@media screen and (max-width: 800px) {
+    .profile__edit-button {
+        padding-right: 230px;
+}
+}-*/

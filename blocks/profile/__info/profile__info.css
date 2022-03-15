@@ -2,4 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
+    margin-left: 3px;
+    max-width: 294px;
 }
