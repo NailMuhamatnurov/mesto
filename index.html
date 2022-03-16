@@ -7,40 +7,41 @@
     <link rel="stylesheet" href="pages/index.css">
 </head>
 <body class="page">
-    <header class="header page__section">
-        <img class="header__logo" src="./images/header__logo.svg">
+    <header class="header">
+        <img class="header__logo" src="./images/header__logo.svg" alt="Лого">
         <div class="header__line"></div>
     </header>
     <main class="content">
     
         <section class="profile page__section">
             <div class="profile__avatar">
-                <img class="profile__image" src="./images/profile__avatar.jpg">
+                <img class="profile__image" src="./images/profile__avatar.jpg" alt="Аватар">
             </div>
             <div class="profile__info">
                 <div class="profile__title">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <p class="profile__description">Исследователь океана</p>
-                </div>    
-            <!--<div class="profile__buttons">-->
-                <button type="button" class="profile__edit-button opacity-link">
-                   <!-- <img src="./images/Edit Button.svg">-->
-                </button>
+                    <button type="button" class="profile__edit-button opacity-link"></button>
+                    
+                </div> 
+                <p class="profile__description">Исследователь океана</p>
+                
             </div>
-                <button class="profile__add-button opacity-link">
-                  <!--   <a href="#"><img class="add" src="./images/Add Button.svg"></a>-->
-                </button>
-           <!-- </div>-->
+                <button type="button" class="profile__add-button opacity-link"></button>
+            </div>
         </section>    
     
         <section class="elements page__section">
-            <div class="element">
-                <div class="element__photo"><img src="./images/element-karachaevsk.jpg"></div>
-                <div class="element__title">Карачаевск<img class="element__like opacity-link" src="./images/element-like.png"></div>
-            </div>
+            <ul class="element">
+                <li class="element__photo"><img src="./images/element-karachaevsk.jpg"></li>
+                <li class="element__title">Карачаевск
+                    <img class="element__like opacity-link" src="./images/element-like.png">
+                </li>
+            </ul>
             <ul class="element">
                 <li class="element__photo"><img src="./images/element-elbrus.jpg"></li>
-                <li class="element__title">Гора Эльбрус<img class="element__like" src="./images/element-like.png"></li>
+                <li class="element__title">Гора Эльбрус
+                    <img class="element__like" src="./images/element-like.png">
+                </li>
             </ul>
             <ul class="element">
                 <li class="element__photo"><img src="./images/element-dombai.jpg"></li>
@@ -62,7 +63,7 @@
             </ul>
             <ul class="element">
                 <li class="element__photo"><img src="./images/element-karachaevsk.jpg"></li>
-                <li class="element__title">Карачаево-Ч...
+                <li class="element__title element__title_name">
                     <img class="element__like" src="./images/element-like.png">
                 </li>
             </ul>

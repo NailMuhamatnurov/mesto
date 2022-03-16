@@ -1,0 +1,11 @@
+.element__title_name::before {
+    content: "Карачаево-Ч...";
+    font-size: 24px;
+    line-height: 29.05px;
+    font-weight: 900;
+}
+@media screen and (max-width: 320px) {
+    .element__title_name::before {
+        content: "Карачаевск";
+}
+}
