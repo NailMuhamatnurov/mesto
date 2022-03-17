@@ -2,18 +2,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    border-radius: 5%;
-    /*max-width: 282px;*/
-    max-width: 100%;
+    border-radius: 3%;
+    max-width: 282px;
     overflow: hidden;
 }
-/*@media screen and (max-width: 600px) {
-    .element {
-        max-width: 220px;
-}
-}
-/*@media screen and (max-width: 450px) {
-    .element {
-        max-width: 281px;
-}
-}*/

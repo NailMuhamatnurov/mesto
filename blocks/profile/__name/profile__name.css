@@ -5,14 +5,11 @@
     line-height: 48px;
     font-weight: 500;
     min-width: 294px;
-    display: flex;
-    align-items: flex-end;
 }
 @media screen and (max-width: 540px) {
     .profile__name {
         font-size: 27px;
         line-height: 32.68px;
         min-width: 190px;
-        margin-top: 22px;
 }
 }
