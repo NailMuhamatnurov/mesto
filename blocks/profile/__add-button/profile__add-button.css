@@ -21,8 +21,8 @@
         margin-left: 10px;
         text-align: center;
         width: 282px;
-        background-image: url(../../../images/Add-Button-mobile.svg) ;
-}
+        background-image: url(../../../images/Add-Button-mobile.svg);
+    }
 }
 @media screen and (max-width: 625px) {
     .profile__add-button {
