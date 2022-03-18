@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,44 +22,44 @@
                 </div>
                 <p class="profile__description">Исследователь океана</p>
             </div>
-            <button type="button" class="profile__add-button opacity-link"></button>
+            <button type="button" class="profile__add-button opacity-link" aria-label="Добавить профиль"></button>
         </section>    
     
         <section class="elements page__section">
             <ul class="element">
                 <li class="element__photo"><img src="./images/element-karachaevsk.jpg"></li>
                 <li class="element__title">Карачаевск
-                    <img class="element__like opacity-link" src="./images/element-like.png">
+                    <img class="element__like opacity-link" src="./images/element-like.png" alt="Лайк">
                 </li>
             </ul>
             <ul class="element">
                 <li class="element__photo"><img src="./images/element-elbrus.jpg"></li>
                 <li class="element__title">Гора Эльбрус
-                    <img class="element__like opacity-link" src="./images/element-like.png">
+                    <img class="element__like opacity-link" src="./images/element-like.png" alt="Лайк">
                 </li>
             </ul>
             <ul class="element">
                 <li class="element__photo"><img src="./images/element-dombai.jpg"></li>
                 <li class="element__title">Домбай
-                    <img class="element__like opacity-link" src="./images/element-like.png">
+                    <img class="element__like opacity-link" src="./images/element-like.png" alt="Лайк">
                 </li>
             </ul>
             <ul class="element">
                 <li class="element__photo"><img src="./images/element-elbrus.jpg"></li>
                 <li class="element__title">Гора Эльбрус
-                    <img class="element__like opacity-link" src="./images/element-like.png">
+                    <img class="element__like opacity-link" src="./images/element-like.png" alt="Лайк">
                 </li>
             </ul>
             <ul class="element">
                 <li class="element__photo"><img src="./images/element-dombai.jpg"></li>
                 <li class="element__title">Домбай
-                    <img class="element__like opacity-link" src="./images/element-like.png">
+                    <img class="element__like opacity-link" src="./images/element-like.png" alt="Лайк">
                 </li>
             </ul>
             <ul class="element">
                 <li class="element__photo"><img src="./images/element-karachaevsk.jpg"></li>
                 <li class="element__title element__title_name">
-                    <img class="element__like opacity-link" src="./images/element-like.png">
+                    <img class="element__like opacity-link" src="./images/element-like.png" alt="Лайк">
                 </li>
             </ul>
         </section>
@@ -70,7 +70,7 @@
                 <form class="popup__form">
                     <input type="text" value="Имя" id="name" class="popup__input popup__input_name" minlength="2" maxlength="40">
                     <input type="text" value="О себе" id="description" class="popup__input popup__input_description" minlength="2" maxlength="200">
-                    <button class="popup__submit-button opacity-link" type="submit">Сохранить</button>
+                    <button class="popup__submit-button opacity-link" type="submit" aria-label="Сохранить">Сохранить</button>
                 </form>
                 <button class="popup__close opacity-link" type="button" aria-label="Закрыть окно"></button>
             </div>
@@ -82,6 +82,6 @@
         <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
    
-    <script src="./script.js"></script>
+    <script src="./scripts/script.js"></script>
 </body>
 </html>
