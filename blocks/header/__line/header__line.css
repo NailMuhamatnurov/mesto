@@ -12,8 +12,8 @@
 }
 @media screen and (max-width: 1279px) {
     .header__line {
-       margin-left: calc((100vw - 880px)/2);
-       margin-right: calc((100vw - 880px)/2);
+       margin-left: calc((100vw - 880px)/2.001);
+       margin-right: calc((100vw - 880px)/2.001);
 }
 }
 @media screen and (max-width: 912px) {
