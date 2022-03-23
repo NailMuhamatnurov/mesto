@@ -1,8 +1,7 @@
 .element {
-    list-style-type: none;
     margin: 0;
     padding: 0;
     border-radius: 3%;
-    max-width: 282px;
     overflow: hidden;
+    max-height: 361px;
 }

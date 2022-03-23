@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="pages/index.css">
 </head>
 <body class="page">
-    <header class="header">
+    <header class="header page__section">
         <img class="header__logo" src="./images/header__logo.svg" alt="Лого">
-        <div class="header__line"></div>
     </header>
     <main class="content">
     
@@ -26,62 +25,68 @@
         </section>    
     
         <section class="elements page__section">
-            <ul class="element">
-                <li class="element__photo"><img src="./images/element-karachaevsk.jpg" alt="Карачаевск"></li>
-                <li class="element__title">Карачаевск
-                    <img class="element__like opacity-link" src="./images/element-like.png" alt="Лайк">
-                </li>
-            </ul>
-            <ul class="element">
-                <li class="element__photo"><img src="./images/element-elbrus.jpg" alt="Эльбрус"></li>
-                <li class="element__title">Гора Эльбрус
-                    <img class="element__like opacity-link" src="./images/element-like.png" alt="Лайк">
-                </li>
-            </ul>
-            <ul class="element">
-                <li class="element__photo"><img src="./images/element-dombai.jpg" alt="Домбай"></li>
-                <li class="element__title">Домбай
-                    <img class="element__like opacity-link" src="./images/element-like.png" alt="Лайк">
-                </li>
-            </ul>
-            <ul class="element">
-                <li class="element__photo"><img src="./images/element-elbrus.jpg" alt="Эльбрус"></li>
-                <li class="element__title">Гора Эльбрус
-                    <img class="element__like opacity-link" src="./images/element-like.png" alt="Лайк">
-                </li>
-            </ul>
-            <ul class="element">
-                <li class="element__photo"><img src="./images/element-dombai.jpg" alt="Домбай"></li>
-                <li class="element__title">Домбай
-                    <img class="element__like opacity-link" src="./images/element-like.png" alt="Лайк">
-                </li>
-            </ul>
-            <ul class="element">
-                <li class="element__photo"><img src="./images/element-karachaevsk.jpg" alt="Карачаевск"></li>
-                <li class="element__title element__title_name">
-                    <img class="element__like opacity-link" src="./images/element-like.png" alt="Лайк">
-                </li>
-            </ul>
-        </section>
-
-        <section class="popup">
-            <div class="popup__container">
-                <h3 class="popup__title">Редактировать профиль</h3>
-                <form class="popup__form">
-                    <input type="text" value="Имя" id="name" class="popup__input popup__input_name" minlength="2" maxlength="40">
-                    <input type="text" value="О себе" id="description" class="popup__input popup__input_description" minlength="2" maxlength="200">
-                    <button class="popup__submit-button opacity-link" type="submit" aria-label="Сохранить">Сохранить</button>
-                </form>
-                <button class="popup__close opacity-link" type="button" aria-label="Закрыть окно"></button>
+            <div class="element">
+                <div class="element__photo"><img class="element__image" src="./images/element-karachaevsk.jpg" alt="Карачаевск"></div>
+                <div class="element__subtitle">
+                    <h2 class="element__title">Карачаевск</h2>
+                    <button class="element__like" type="button" aria-label="Лайк"></button>
+                </div>
+            </div>
+            <div class="element">
+                <div class="element__photo"><img class="element__image" src="./images/element-elbrus.jpg" alt="Эльбрус"></div>
+                <div class="element__subtitle">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__like" type="button" aria-label="Лайк"></button>
+                </div>
+            </div>
+            <div class="element">
+                <div class="element__photo"><img class="element__image" src="./images/element-dombai.jpg" alt="Домбай"></div>
+                <div class="element__subtitle">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="element__like" type="button" aria-label="Лайк"></button>
+                </div>
+            </div>
+            <div class="element">
+                <div class="element__photo"><img class="element__image" src="./images/element-elbrus.jpg" alt="Эльбрус"></div>
+                <div class="element__subtitle">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__like" type="button" aria-label="Лайк"></button>
+                </div>
+            </div>
+            <div class="element">
+                <div class="element__photo"><img class="element__image" src="./images/element-dombai.jpg" alt="Домбай"></div>
+                <div class="element__subtitle">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="element__like" type="button" aria-label="Лайк"></button>
+                </div>
+            </div>
+            <div class="element">
+                <div class="element__photo"><img class="element__image" src="./images/element-karachaevsk.jpg" alt="Карачаевск"></div>
+                <div class="element__subtitle">
+                    <h2 class="element__title">Карачаево-Черкессия</h2>
+                    <button class="element__like" type="button" aria-label="Лайк"></button>
+                </div>
             </div>
         </section>
 
     </main>
     
     <footer class="footer page__section">
-        <p class="footer__copyright">© 2020 Mesto Russia</p>
+        <p class="footer__copyright">© 2022 Mesto Russia</p>
     </footer>
    
-    <script src="./scripts/script.js"></script>
+    <div class="popup">
+        <div class="popup__container">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form class="popup__form" name="edit-profile">
+                <input type="text" value="" placeholder="Имя" id="name" class="popup__input" minlength="2" maxlength="40" name="profile-name" required>
+                <input type="text" value="" placeholder="О себе" id="description" class="popup__input" minlength="2" maxlength="200" name="profile-description" required>
+                <button class="popup__submit-button" type="submit" aria-label="Сохранить">Сохранить</button>
+            </form>
+            <button class="popup__close opacity-link" type="button" aria-label="Закрыть окно"></button>
+        </div>
+    </div>
+
+    <script src="./scripts/index.js"></script>
 </body>
 </html>

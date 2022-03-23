@@ -1,14 +1,13 @@
 .element__title {
     margin: 0;
-    background-color: white;
-    background-size: cover;
+    padding: 0;
     color: black;
-    min-height: 79px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 21px;
+    padding: 0 21px 4px;
     font-size: 24px;
     line-height: 29.05px;
     font-weight: 900;
+    width: 187px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
