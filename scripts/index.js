@@ -27,6 +27,8 @@ function formSubmitHandler(evt) {
 
     profileName.textContent = nameField;
     profileDescription.textContent = jobField;
+
+    closePopup();
 }
 
 editButton.addEventListener('click', openPopup);
