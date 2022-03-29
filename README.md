@@ -1,4 +1,4 @@
-# Проект: Место
+﻿# Проект: Место
 
 ### Фотографируй, делись фотографиями, оценивай.
 
@@ -17,6 +17,5 @@ https://nailmuhamatnurov.github.io/mesto/
 
 ![Image alt](https://github.com/NailMuhamatnurov/mesto/raw/main/images/element-elbrus.jpg)
 ![Image alt](https://github.com/NailMuhamatnurov/mesto/raw/main/images/element-dombai.jpg)
-![Image alt](https://github.com/NailMuhamatnurov/mesto/raw/main/images/element-karachaevsk.jpg)
 
 Пока наш сайт обладает небольшой функциональностью, но в скором времени мы добавим много новых возможностей и фишек. 
