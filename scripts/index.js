@@ -62,18 +62,23 @@ const initialCards = [
   ]; 
 
 //open popup 
-function openPopup(popup, photoLink = null, photoTitle = null) {
+function openPopup(popup) {
     popup.classList.add('popup_opened');
+}
+
+function openProfilePopup() {
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileDescription.textContent;
     
+    openPopup(profileEdit);
+}
+
+function openPhotoPopup(photoTitle, photoLink) {
     popupPhotoLink.src = photoLink;
     popupPhotoLink.alt = photoTitle;
     popupPhotoTitle.textContent = photoTitle;
 
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileDescription.textContent;
-
-    cardName.value = null;
-    cardLink.value = null;
+    openPopup(photoPopup);
 }
 
 //close popup
@@ -94,20 +99,20 @@ function formSubmitHandler(evt) {
     closePopup(profileEdit);
 }
 
-function formSubmitHandlerAdd(evt) {
+function addNewPhoto(evt) {
     evt.preventDefault();
 
     renderCard(cardName.value, cardLink.value);
+
+    cardName.value = null;
+    cardLink.value = null;
 
     closePopup(placeAdd);
 }
 
 function renderCard(title, image) {
     const card = createCard(title, image);
-    
-    elementsContainer.prepend(card);
-   
-    listeners(card, title, image);
+    return elementsContainer.prepend(card);
 }
 
 function createCard(titleCard, imageCard) {
@@ -117,38 +122,35 @@ function createCard(titleCard, imageCard) {
     cardElement.querySelector('.element__image').src = imageCard;
     cardElement.querySelector('.element__image').alt = titleCard;
     
+    listeners(cardElement, titleCard, imageCard);
+
     return cardElement;
 }
 
 function listeners(card, title, image) {
-    card.querySelector('.element__like').addEventListener('click', function(evt){
-        evt.target.classList.toggle('element__like_active');
-    });
+  card.querySelector('.element__like').addEventListener('click', (evt) => {
+    evt.target.classList.toggle('element__like_active');
+  });
 
-    card.querySelector('.element__image').addEventListener('click', function() {
-        openPopup(photoPopup, image, title);
-    });
-
-    card.querySelector('.element__basket').addEventListener('click', function() {
-        card.remove();
-    });
+  card.querySelector('.element__image').addEventListener('click', () => {
+    openPhotoPopup(title, image);
+  }); 
+  
+  card.querySelector('.element__basket').addEventListener('click', () => {
+    card.remove();
+  });
 }
 
 // add default cards on page
 function defaultCardsOnPage() {
-    initialCards.forEach(function (item) {
+    initialCards.forEach((item) => {
     renderCard(item.name, item.link);
     });
 }
 
-//like active function
-function likeActive() {
-    likeButton.classList.add('element__like_active');
-}
-
 defaultCardsOnPage();
 
-buttonEdit.addEventListener('click', () => {openPopup(profileEdit)});
+buttonEdit.addEventListener('click', () => {openProfilePopup()});
 buttonAdd.addEventListener('click', () => {openPopup(placeAdd)});
 
 buttonEditClose.addEventListener('click', () => {closePopup(profileEdit)});
@@ -156,4 +158,4 @@ buttonAddClose.addEventListener('click', () => {closePopup(placeAdd)});
 buttonPhotoPopupClose.addEventListener('click', () => {closePopup(photoPopup)});
 
 formElementEdit.addEventListener('submit', formSubmitHandler);
-formElementAdd.addEventListener('submit', formSubmitHandlerAdd);
+formElementAdd.addEventListener('submit', addNewPhoto);
