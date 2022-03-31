@@ -122,12 +122,12 @@ function createCard(titleCard, imageCard) {
     cardElement.querySelector('.element__image').src = imageCard;
     cardElement.querySelector('.element__image').alt = titleCard;
     
-    connectingButtonListeners(cardElement, titleCard, imageCard);
+    connectionButtonListeners(cardElement, titleCard, imageCard);
 
     return cardElement;
 }
 
-function connectingButtonListeners(card, title, image) {
+function connectionButtonListeners(card, title, image) {
     card.querySelector('.element__like').addEventListener('click', (evt) => {
       evt.target.classList.toggle('element__like_active');
     });
@@ -142,13 +142,13 @@ function connectingButtonListeners(card, title, image) {
 }
 
 // add default cards on page
-function defaultCardsOnPage() {
+function addDefaultCardsOnPage() {
     initialCards.forEach((item) => {
     renderCard(item.name, item.link);
     });
 }
 
-defaultCardsOnPage();
+addDefaultCardsOnPage();
 
 buttonEdit.addEventListener('click', () => {openProfilePopup()});
 buttonAdd.addEventListener('click', () => {openPopup(placeAdd)});
