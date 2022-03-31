@@ -87,7 +87,7 @@ function closePopup(popup) {
 }
 
 //functions submit
-function formSubmitHandler(evt) {
+function editProfileInfo(evt) {
     evt.preventDefault();
 
     const nameField = nameInput.value;
@@ -112,7 +112,7 @@ function addNewPhoto(evt) {
 
 function renderCard(title, image) {
     const card = createCard(title, image);
-    return elementsContainer.prepend(card);
+    elementsContainer.prepend(card);
 }
 
 function createCard(titleCard, imageCard) {
@@ -122,23 +122,23 @@ function createCard(titleCard, imageCard) {
     cardElement.querySelector('.element__image').src = imageCard;
     cardElement.querySelector('.element__image').alt = titleCard;
     
-    listeners(cardElement, titleCard, imageCard);
+    connectingButtonListeners(cardElement, titleCard, imageCard);
 
     return cardElement;
 }
 
-function listeners(card, title, image) {
-  card.querySelector('.element__like').addEventListener('click', (evt) => {
-    evt.target.classList.toggle('element__like_active');
-  });
+function connectingButtonListeners(card, title, image) {
+    card.querySelector('.element__like').addEventListener('click', (evt) => {
+      evt.target.classList.toggle('element__like_active');
+    });
 
-  card.querySelector('.element__image').addEventListener('click', () => {
-    openPhotoPopup(title, image);
-  }); 
-  
-  card.querySelector('.element__basket').addEventListener('click', () => {
-    card.remove();
-  });
+    card.querySelector('.element__image').addEventListener('click', () => {
+      openPhotoPopup(title, image);
+    }); 
+    
+    card.querySelector('.element__basket').addEventListener('click', () => {
+      card.remove();
+    });
 }
 
 // add default cards on page
@@ -157,5 +157,5 @@ buttonEditClose.addEventListener('click', () => {closePopup(profileEdit)});
 buttonAddClose.addEventListener('click', () => {closePopup(placeAdd)});
 buttonPhotoPopupClose.addEventListener('click', () => {closePopup(photoPopup)});
 
-formElementEdit.addEventListener('submit', formSubmitHandler);
+formElementEdit.addEventListener('submit', editProfileInfo);
 formElementAdd.addEventListener('submit', addNewPhoto);
