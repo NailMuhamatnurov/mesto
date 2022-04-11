@@ -1,4 +1,5 @@
 //popups
+const popup = document.querySelector('.popup');
 const profileEdit = document.querySelector('.popup_type_edit');
 const placeAdd = document.querySelector('.popup_type_add');
 const photoPopup = document.querySelector('.popup_type_photo');
@@ -64,6 +65,9 @@ const initialCards = [
 //open popup 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+    
+    handleEsc(popup);
+    handleMouseClick(popup);
 }
 
 function openProfilePopup() {
@@ -84,6 +88,27 @@ function openPhotoPopup(photoTitle, photoLink) {
 //close popup
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    
+    if(!popup.classList.contains(placeAdd)) {
+      formElementAdd.reset();
+    }
+    
+}
+
+function handleEsc(popup) {
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+    }
+  });
+}
+
+function handleMouseClick(popup) {
+  popup.addEventListener('mousedown', (evt) => {
+  if (evt.target.classList.contains('popup')) {
+    closePopup(popup);
+  }
+});
 }
 
 //functions submit
@@ -103,9 +128,6 @@ function addNewPhoto(evt) {
     evt.preventDefault();
 
     renderCard(cardName.value, cardLink.value);
-
-    cardName.value = null;
-    cardLink.value = null;
 
     closePopup(placeAdd);
 }
