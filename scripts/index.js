@@ -4,12 +4,17 @@ const profileEdit = document.querySelector('.popup_type_edit');
 const placeAdd = document.querySelector('.popup_type_add');
 const photoPopup = document.querySelector('.popup_type_photo');
 
+//forms
+const formElementEdit = profileEdit.querySelector('.popup__form');
+const formElementAdd = placeAdd.querySelector('.popup__form');
+
 //buttons
 const buttonEdit = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
 const buttonEditClose = profileEdit.querySelector('.popup__close');
 const buttonAddClose = placeAdd.querySelector('.popup__close');
 const buttonPhotoPopupClose = photoPopup.querySelector('.popup__close');
+const buttonSubmit = formElementAdd.querySelector('.popup__submit-button');
 
 //profile titles
 const profileName = document.querySelector('.profile__name');
@@ -20,10 +25,6 @@ const nameInput = document.getElementById('name');
 const jobInput = document.getElementById('description');
 const cardName = document.getElementById('place');
 const cardLink = document.getElementById('image-link');
-
-//forms
-const formElementEdit = profileEdit.querySelector('.popup__form');
-const formElementAdd = placeAdd.querySelector('.popup__form');
 
 //template
 const elementsContainer = document.querySelector('.elements');
@@ -66,8 +67,8 @@ const initialCards = [
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     
-    handleEsc(popup);
-    handleMouseClick(popup);
+    document.addEventListener('keydown', handleEsc(popup));
+    document.addEventListener('keydown', handleMouseClick(popup));  
 }
 
 function openProfilePopup() {
@@ -89,14 +90,12 @@ function openPhotoPopup(photoTitle, photoLink) {
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
     
-    if(!popup.classList.contains(placeAdd)) {
-      formElementAdd.reset();
-    }
-    
+    document.removeEventListener('keydown', handleEsc(popup));
+    document.removeEventListener('keydown', handleMouseClick(popup));   
 }
 
 function handleEsc(popup) {
-  document.addEventListener('keydown', (evt) => {
+    document.addEventListener('keydown', (evt) => {
     if (evt.key === 'Escape') {
       closePopup(popup);
     }
@@ -129,6 +128,11 @@ function addNewPhoto(evt) {
 
     renderCard(cardName.value, cardLink.value);
 
+    formElementAdd.reset();
+           
+    buttonSubmit.classList.add('popup__submit-button_inactive');
+    buttonSubmit.setAttribute('disabled', true);
+
     closePopup(placeAdd);
 }
 
@@ -139,12 +143,11 @@ function renderCard(title, image) {
 
 function createCard(titleCard, imageCard) {
     const cardElement = templateAdd.querySelector('.element').cloneNode(true);
-
-    cardElement.querySelector('.element__title').textContent = titleCard;
-    cardElement.querySelector('.element__image').src = imageCard;
-    cardElement.querySelector('.element__image').alt = titleCard;
+    const elementImage = cardElement.querySelector('.element__image');
     
-    connectionButtonListeners(cardElement, titleCard, imageCard);
+    cardElement.querySelector('.element__title').textContent = titleCard;
+   
+    connectionButtonListeners(cardElement, elementImage.alt = titleCard, elementImage.src = imageCard);
 
     return cardElement;
 }
