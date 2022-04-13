@@ -67,8 +67,8 @@ const initialCards = [
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     
-    document.addEventListener('keydown', handleEsc(popup));
-    document.addEventListener('keydown', handleMouseClick(popup));  
+    document.addEventListener('keydown', handleEsc);
+    document.addEventListener('click', handleMouseClick);  
 }
 
 function openProfilePopup() {
@@ -90,24 +90,22 @@ function openPhotoPopup(photoTitle, photoLink) {
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
     
-    document.removeEventListener('keydown', handleEsc(popup));
-    document.removeEventListener('keydown', handleMouseClick(popup));   
+    document.removeEventListener('keydown', handleEsc);
+    document.removeEventListener('click', handleMouseClick);
 }
 
-function handleEsc(popup) {
-    document.addEventListener('keydown', (evt) => {
+function handleEsc(evt) {
     if (evt.key === 'Escape') {
-      closePopup(popup);
+      const popupOpened = document.querySelector('.popup_opened');
+      closePopup(popupOpened);
     }
-  });
 }
 
-function handleMouseClick(popup) {
-  popup.addEventListener('mousedown', (evt) => {
+function handleMouseClick(evt) {
   if (evt.target.classList.contains('popup')) {
-    closePopup(popup);
+    const popupOpened = document.querySelector('.popup_opened');
+    closePopup(popupOpened);
   }
-});
 }
 
 //functions submit
