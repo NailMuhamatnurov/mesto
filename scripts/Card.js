@@ -1,37 +1,9 @@
-import {openPhotoPopup} from './index.js';
-
-const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-]; 
-
-class Card {
-    constructor(data, cardSelector) {
+export default class Card {
+    constructor({data, openPhotoPopup}, cardSelector) {
         this._cardSelector = cardSelector;
         this._cardText = data.name;
         this._cardUrl = data.link;
+        this._openPhotoPopup = openPhotoPopup;
     }
 
     _getTemplate(_cardText, _cardUrl) {
@@ -58,40 +30,25 @@ class Card {
         return this._element;
     }
 
+    removeCard() {
+        this._element.remove();
+    }
+
+    toggleLike() {
+        this._like.classList.toggle('element__like_active');
+    }
+
     _setEventListeners() {
         this._image.addEventListener('click', () =>{
-            openPhotoPopup(this._cardText, this._cardUrl);
+            this._openPhotoPopup(this._cardText, this._cardUrl);
         })
 
         this._remove.addEventListener('click', () => {
-            this._element.remove();
+            this.removeCard();
         })
 
         this._like.addEventListener('click', () => {
-            this._like.classList.toggle('element__like_active');
+          this.toggleLike();
         })
         }
     }
-
-    const defaultCards = () => {
-        initialCards.forEach((item) => {
-        const card = new Card(item, '.elements-template');
-        
-        const cardElement = card.generateCard();
-        
-        document.querySelector('.elements').append(cardElement);
-        });
-    }
-
-    const renderCard = (cardTitle, cardLink) => {
-        const item = [];
-        item.name = cardTitle;
-        item.link = cardLink;
-        const card = new Card(item, '.elements-template');
-            
-        const cardElement = card.generateCard();
-            
-        document.querySelector('.elements').prepend(cardElement);
-    }
-
-export {defaultCards, renderCard};

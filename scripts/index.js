@@ -1,5 +1,5 @@
-import {defaultCards, renderCard} from './Card.js';
 import FormValidator from './FormValidator.js';
+import Card from './Card.js';
 
 //popups
 const profileEdit = document.querySelector('.popup_type_edit');
@@ -32,6 +32,9 @@ const cardLink = document.getElementById('image-link');
 const popupPhotoLink = photoPopup.querySelector('.popup__photo'); 
 const popupPhotoTitle = photoPopup.querySelector('.popup__photo-title');
 
+const container = document.querySelector('.elements');
+const template = '.elements-template';
+
 const objectSelector = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
@@ -40,6 +43,33 @@ const objectSelector = {
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__input-error_active' 
 };
+
+const initialCards = [
+    {
+      name: 'Архыз',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+      name: 'Челябинская область',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+      name: 'Иваново',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+      name: 'Камчатка',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+      name: 'Холмогорский район',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+      name: 'Байкал',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+]; 
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
@@ -55,7 +85,7 @@ function openProfilePopup() {
     openPopup(profileEdit);
 }
 
-export function openPhotoPopup(photoTitle, photoLink) {
+function openPhotoPopup(photoTitle, photoLink) {
     popupPhotoLink.src = photoLink;
     popupPhotoLink.alt = photoTitle;
     popupPhotoTitle.textContent = photoTitle;
@@ -99,7 +129,11 @@ function editProfileInfo(evt) {
 function addNewPhoto(evt) {
     evt.preventDefault();
 
-    renderCard(cardName.value, cardLink.value);
+    const item = [];
+    item.name = cardName.value;
+    item.link = cardLink.value;
+        
+    renderCard(createCard(item, template));
 
     formElementAdd.reset();
            
@@ -109,7 +143,22 @@ function addNewPhoto(evt) {
     closePopup(placeAdd);
 }
 
-defaultCards();
+function createCard(item, template) { 
+    const card = new Card({data: item, openPhotoPopup}, template);
+    const cardElement = card.generateCard();
+     
+    return cardElement;
+}
+
+function renderCard(card) {
+    container.prepend(card);
+}
+
+initialCards.forEach((item) => {
+    const card = createCard(item, template);
+   
+    renderCard(card); 
+});
 
 buttonEdit.addEventListener('click', () => {openProfilePopup()});
 buttonAdd.addEventListener('click', () => {openPopup(placeAdd)});
