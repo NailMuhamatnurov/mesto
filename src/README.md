@@ -15,7 +15,7 @@ https://nailmuhamatnurov.github.io/mesto/
 
 **Картинки**
 
-![Image alt](https://github.com/NailMuhamatnurov/mesto/raw/main/images/element-elbrus.jpg)
-![Image alt](https://github.com/NailMuhamatnurov/mesto/raw/main/images/element-dombai.jpg)
+![Image alt](https://github.com/NailMuhamatnurov/mesto/raw/main/src/images/element-elbrus.jpg)
+![Image alt](https://github.com/NailMuhamatnurov/mesto/raw/main/src/images/element-dombai.jpg)
 
 Пока наш сайт обладает небольшой функциональностью, но в скором времени мы добавим много новых возможностей и фишек. 
