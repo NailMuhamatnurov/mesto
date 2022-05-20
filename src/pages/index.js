@@ -1,8 +1,8 @@
 import '../pages/index.css';
 
 import {profileEdit, placeAdd, formElementAdd, selectorObj, buttonEdit, buttonAdd,
-        profileName, profileDescription, nameInput, jobInput, cardName,
-        cardLink, objectSelector, container, template, initialCards} from '../utils/constants.js';
+        profileName, profileDescription, nameInput, jobInput,
+        objectSelector, template, initialCards} from '../utils/constants.js';
 
 import FormValidator from '../components/FormValidator.js';
 import Card from '../components/Card.js';
@@ -21,16 +21,15 @@ function handlePopupProfile(data) {
 }
 
 function handleTextInput() {
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileDescription.textContent;
+    const info = userInfo.getUserInfo();
+    nameInput.value = info.name;
+    jobInput.value = info.description;
 }
 
-function addNewPhoto() {
-    const cardItem = [];
-    cardItem.name = cardName.value;
-    cardItem.link = cardLink.value;
-        
-    renderCard(createCard(cardItem, template));
+function addNewPhoto(formData) {
+    const newCard = createCard(formData, template);
+    cardList.addItem(newCard);
+    
     formElementAdd.reset();
     popupAddCard.close();
 }
@@ -42,17 +41,15 @@ function createCard(item, template) {
     return cardElement;
 }
 
-function renderCard(card) {
-    container.prepend(card);
-}
-
 buttonEdit.addEventListener('click', () => {
     popupEditProfile.open();
     handleTextInput();
+    formValidationProfileEdit.resetValidationState();
 });
 
 buttonAdd.addEventListener('click', () => {
     popupAddCard.open();
+    formValidationAddCard.resetValidationState();
 });
 
 const cardList = new Section({
@@ -81,8 +78,8 @@ const formValidationProfileEdit = new FormValidator(objectSelector, profileEdit)
 formValidationProfileEdit.enableValidation();
 
 const userInfo = new UserInfo({
-    selectorName: document.querySelector(selectorObj.profileNameSelector),
-    selectorDescription: document.querySelector(selectorObj.profileDescriptionSelector),
+    selectorName: profileName,
+    selectorDescription: profileDescription, 
 });
 
 cardList.renderItems();

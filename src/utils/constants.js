@@ -11,7 +11,6 @@ export const selectorObj = {
     popupImageSelector: '.popup_type_photo',
     popupProfileSelector: '.popup_type_edit',
     popupAddCardSelector: '.popup_type_add',
-    popupChangeAvatarSelector: '.popup_type_change-avatar',
     elementsSelector: '.elements',
     profileNameSelector: '.profile__name',
     profileDescriptionSelector: '.profile__description',
