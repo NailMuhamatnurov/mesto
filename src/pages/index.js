@@ -30,7 +30,6 @@ function addNewPhoto(formData) {
     const newCard = createCard(formData, template);
     cardList.addItem(newCard);
     
-    formElementAdd.reset();
     popupAddCard.close();
 }
 
@@ -78,8 +77,8 @@ const formValidationProfileEdit = new FormValidator(objectSelector, profileEdit)
 formValidationProfileEdit.enableValidation();
 
 const userInfo = new UserInfo({
-    selectorName: profileName,
-    selectorDescription: profileDescription, 
+    nameElement: profileName,
+    descriptionElement: profileDescription, 
 });
 
 cardList.renderItems();
