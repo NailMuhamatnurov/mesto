@@ -7,7 +7,7 @@
 
 **Сайт**
 
-https://nailmuhamatnurov.github.io/mesto/src/index.html
+https://nailmuhamatnurov.github.io/mesto/
 
 **Figma**
 
