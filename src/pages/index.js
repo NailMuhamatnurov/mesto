@@ -15,7 +15,6 @@ import PopupWithSubmit from '../components/PopupWithSubmit.js';
 
 function openPhotoPopup(photoTitle, photoLink) {
     popupWithImage.open(photoTitle, photoLink);
-    console.log('проверка');
 }
 
 function handlePopupProfile(inputsData) {
