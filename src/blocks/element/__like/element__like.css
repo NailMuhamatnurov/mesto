@@ -9,6 +9,7 @@
     height: 20px;
     opacity: 1;
     transition: opacity .2s linear;
+    margin-bottom: 10px;
 }
 
 .element__like:hover {

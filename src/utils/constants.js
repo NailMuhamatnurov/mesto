@@ -11,9 +11,12 @@ export const selectorObj = {
     popupImageSelector: '.popup_type_photo',
     popupProfileSelector: '.popup_type_edit',
     popupAddCardSelector: '.popup_type_add',
+    popupProfileAvatar: '.popup_type_avatar',
+    popupPhotoRemove: '.popup_type_question',
     elementsSelector: '.elements',
     profileNameSelector: '.profile__name',
     profileDescriptionSelector: '.profile__description',
+    cardId: '#card',
 };
 
 export const profileEdit = document.querySelector('.popup_type_edit');
@@ -26,6 +29,7 @@ export const formElementAdd = placeAdd.querySelector('.popup__form');
 
 export const buttonEdit = document.querySelector('.profile__edit-button');
 export const buttonAdd = document.querySelector('.profile__add-button');
+export const buttonAvatar = document.querySelector('.profile__avatar-button');
 export const buttonEditClose = profileEdit.querySelector('.popup__close');
 export const buttonAddClose = placeAdd.querySelector('.popup__close');
 export const buttonPhotoPopupClose = photoPopup.querySelector('.popup__close');
@@ -33,6 +37,7 @@ export const buttonSubmit = formElementAdd.querySelector('.popup__submit-button'
 
 export const profileName = document.querySelector('.profile__name');
 export const profileDescription = document.querySelector('.profile__description');
+export const profileAvatar = document.querySelector('.profile__image');
 
 
 export const nameInput = document.getElementById('name');

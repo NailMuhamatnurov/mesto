@@ -29,7 +29,6 @@ export default class Popup {
 
         this._popupElement.addEventListener('click', (evt) => {
             if (evt.target.classList.contains('popup')) {
-            console.log('проверка popupElement ' + this._popupElement);
                 this.close();
             }
         });
