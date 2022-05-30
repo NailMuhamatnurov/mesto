@@ -2,7 +2,7 @@ import '../pages/index.css';
 
 import {profileEdit, placeAdd, selectorObj, buttonEdit, buttonAdd, buttonAvatar,
         profileName, profileDescription, nameInput, jobInput, profileAvatar,
-        objectSelector, template} from '../utils/constants.js';
+        objectSelector, template, avatarChange} from '../utils/constants.js';
 
 import FormValidator from '../components/FormValidator.js';
 import Card from '../components/Card.js';
@@ -15,7 +15,6 @@ import PopupWithSubmit from '../components/PopupWithSubmit.js';
 
 function openPhotoPopup(photoTitle, photoLink) {
     popupWithImage.open(photoTitle, photoLink);
-    console.log('проверка');
 }
 
 function handlePopupProfile(inputsData) {
@@ -45,7 +44,7 @@ function addNewPhoto(inputsData) {
     
     api.addNewCard(inputsData)
         .then((data) => {
-            cardList.addItem(createCard(data, data.owner._id));
+            cardList.addItem(createCard(data, userInfo.getMainUserId()));
             popupAddCard.close();
         }) 
         .catch((err) => {
@@ -139,6 +138,7 @@ buttonAdd.addEventListener('click', () => {
 
 buttonAvatar.addEventListener('click', () => {
     popupEditAvatar.open();
+    formValidationChangeAvatar.resetValidationState();
 });
 
 const cardList = new Section({
@@ -170,6 +170,9 @@ formValidationAddCard.enableValidation();
 const formValidationProfileEdit = new FormValidator(objectSelector, profileEdit);
 formValidationProfileEdit.enableValidation();
 
+const formValidationChangeAvatar = new FormValidator(objectSelector, avatarChange);
+formValidationChangeAvatar.enableValidation();
+
 const userInfo = new UserInfo({
     nameElement: profileName,
     descriptionElement: profileDescription,
@@ -191,6 +194,7 @@ Promise.all([
 .then((values) => {
     userInfo.setUserInfo(values[0]);
     cardList.renderItems(values[1], values[0]._id);
+    
 })
 .catch((err) => {
     console.log('Получили ошибку в catch Promise.All' + err);

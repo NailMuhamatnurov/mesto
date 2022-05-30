@@ -69,13 +69,13 @@ export default class Api {
                 name: name,
                 about: about,
             })
-          })
+        })
           .then(res => {
               if (res.ok) {
                   return res.json();
               }
               return Promise.reject(`Ошибка в SaveUserInfo: ${res.status}`);
-          })
+        })
     }
 
     addNewCard({

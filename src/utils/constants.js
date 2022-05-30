@@ -21,6 +21,7 @@ export const selectorObj = {
 
 export const profileEdit = document.querySelector('.popup_type_edit');
 export const placeAdd = document.querySelector('.popup_type_add');
+export const avatarChange = document.querySelector('.popup_type_avatar')
 export const photoPopup = document.querySelector('.popup_type_photo'); 
 export const popupProfileInputs = profileEdit.querySelectorAll('.popup__input');
 
